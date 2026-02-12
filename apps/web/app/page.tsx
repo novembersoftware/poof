@@ -33,9 +33,9 @@ export default function Page() {
             <section className="mx-auto w-full max-w-4xl px-8 pt-20 pb-16">
                 <Badge
                     variant="outline"
-                    className="mt-10 font-mono text-[10px] tracking-widest uppercase"
+                    className="mt-10 border-green-500/20 bg-green-500/20 font-mono text-[10px] tracking-widest text-green-500 uppercase"
                 >
-                    Open Source
+                    Beta
                 </Badge>
 
                 <h1 className="mt-5 max-w-2xl text-3xl leading-snug font-medium tracking-tight md:max-w-xl md:text-5xl">

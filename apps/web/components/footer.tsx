@@ -113,3 +113,31 @@ export function Footer() {
         </footer>
     );
 }
+
+export function MinimalFooter() {
+    return (
+        <footer className="text-muted-foreground mt-12 flex w-full flex-wrap items-center justify-between gap-x-4 px-8 py-4 text-xs">
+            <div className="flex items-center gap-x-2">
+                <span>
+                    &copy; {new Date().getFullYear()}{" "}
+                    <Link
+                        href="https://november.software"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                    >
+                        November LLC
+                    </Link>
+                </span>
+            </div>
+            <div className="flex items-center gap-x-2">
+                <Link href="/terms" className="hover:underline">
+                    Terms
+                </Link>
+                <Link href="/privacy" className="hover:underline">
+                    Privacy
+                </Link>
+            </div>
+        </footer>
+    );
+}
