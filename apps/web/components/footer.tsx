@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { ThemeSwitcherClient } from "./theme-switcher";
 
 const ASCII_LOGO = String.raw`
                                 .o88o.            oooo        
@@ -109,6 +110,9 @@ export function Footer() {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="flex shrink-0 self-end">
+                <ThemeSwitcherClient />
             </div>
         </footer>
     );
