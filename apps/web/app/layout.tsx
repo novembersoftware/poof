@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { getToken } from "@/lib/auth-server";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -66,6 +67,7 @@ export default async function RootLayout({
                         disableTransitionOnChange
                     >
                         {children}
+                        <Toaster richColors />
                     </ThemeProvider>
                 </ConvexClientProvider>
             </body>

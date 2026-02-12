@@ -21,7 +21,20 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
         baseURL: process.env.SITE_URL,
         secret: process.env.BETTER_AUTH_SECRET,
         database: authComponent.adapter(ctx),
-        plugins: [convex({ authConfig })]
+        socialProviders: {
+            github: {
+                clientId: process.env.GITHUB_CLIENT_ID!,
+                clientSecret: process.env.GITHUB_CLIENT_SECRET!
+            }
+        },
+        plugins: [
+            convex({ authConfig })
+            // magicLink({
+            //     sendMagicLink: async ({ email, token, url }, ctx) => {
+            //         // send email to user
+            //     }
+            // })
+        ]
     } satisfies BetterAuthOptions;
 };
 
