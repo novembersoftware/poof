@@ -1,3 +1,6 @@
+"use client";
+
+import { Authenticated, Unauthenticated } from "convex/react";
 import { AsteriskIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -8,9 +11,16 @@ export function Navbar() {
             <Link href="/">
                 <AsteriskIcon className="mr-1 inline-block size-6" />
             </Link>
-            <Button nativeButton={false} size="sm" render={<Link href="/sign-in" />}>
-                Sign In
-            </Button>
+            <Authenticated>
+                <Button nativeButton={false} size="sm" render={<Link href="/dashboard" />}>
+                    Dashboard
+                </Button>
+            </Authenticated>
+            <Unauthenticated>
+                <Button nativeButton={false} size="sm" render={<Link href="/sign-in" />}>
+                    Sign In
+                </Button>
+            </Unauthenticated>
         </nav>
     );
 }
