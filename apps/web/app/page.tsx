@@ -48,11 +48,12 @@ export default function Page() {
                 </p>
 
                 <div className="mt-8 flex items-center gap-3">
-                    <Button render={<Link href="/sign-up" />} size="lg">
+                    <Button nativeButton={false} render={<Link href="/sign-up" />} size="lg">
                         Get Started
                         <ArrowRight className="size-3.5" />
                     </Button>
                     <Button
+                        nativeButton={false}
                         render={
                             <Link
                                 href="https://github.com/novembersoftware/poof"
