@@ -22,7 +22,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <AppTopNav
                 links={[
                     { label: "Projects", href: `/${slug}` },
-                    { label: "Audit Log", href: `/${slug}/audit-log` },
                     { label: "Members", href: `/${slug}/members` },
                     { label: "Settings", href: `/${slug}/settings` }
                 ]}
