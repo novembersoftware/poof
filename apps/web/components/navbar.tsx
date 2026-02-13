@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 export function Navbar() {
+    // const data = useQuery(api.auth.getCurrentUserAndOrgs);
+    // console.log(data);
     return (
         <nav className="fixed top-0 flex h-14 w-full items-center justify-between px-4 sm:px-8 md:px-20">
             <Link href="/">

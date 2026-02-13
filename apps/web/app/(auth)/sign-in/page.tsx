@@ -16,7 +16,7 @@ export default function SignInPage() {
                             Please sign in to continue to poof.sh
                         </p>
                     </div>
-                    <AuthButtons callbackURL="/" />
+                    <AuthButtons callbackURL="/auth/loading" />
                     <p className="text-muted-foreground/80 text-xs">
                         By signing in, you agree to our{" "}
                         <Link className="hover:underline" href="/terms">
