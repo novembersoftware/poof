@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!org) notFound();
 
     return {
-        title: `Overview | ${org?.name}`
+        title: `Projects | ${org?.name}`
     };
 }
 
@@ -19,10 +19,17 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     return (
         <div className="flex min-h-screen flex-col">
-            <AppTopNav links={[{ label: "Overview", href: `/${slug}` }]} />
+            <AppTopNav
+                links={[
+                    { label: "Projects", href: `/${slug}` },
+                    { label: "Audit Log", href: `/${slug}/audit-log` },
+                    { label: "Members", href: `/${slug}/members` },
+                    { label: "Settings", href: `/${slug}/settings` }
+                ]}
+            />
             <main className="flex-1">
                 <section className="mx-auto w-full max-w-4xl px-8 pt-10 pb-16">
-                    <AppPageHeader title="Overview" />
+                    <AppPageHeader title="Projects" />
                 </section>
             </main>
         </div>

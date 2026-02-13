@@ -32,23 +32,23 @@ export function AppTopNav({ links }: { links: AppTopNavLink[] }) {
                     <OrgDropdown currentSlug={currentOrg?.slug ?? ""} />
                 </div>
 
-                <nav className="flex items-center justify-center gap-1">
+                <nav className="flex items-center justify-center gap-2">
                     {links.map((item) => {
-                            const isActive =
-                                pathname === item.href ||
-                                (item.href !== "/" && pathname.startsWith(`${item.href}/`));
-                            return (
-                                <Button
-                                    key={item.label}
-                                    nativeButton={false}
-                                    render={<Link href={item.href} />}
-                                    variant={isActive ? "secondary" : "ghost"}
-                                    size="sm"
-                                >
-                                    {item.label}
-                                </Button>
-                            );
-                        })}
+                        const isActive =
+                            pathname === item.href ||
+                            (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+                        return (
+                            <Button
+                                key={item.label}
+                                nativeButton={false}
+                                render={<Link href={item.href} />}
+                                variant={isActive ? "secondary" : "ghost"}
+                                size="sm"
+                            >
+                                {item.label}
+                            </Button>
+                        );
+                    })}
                 </nav>
 
                 <div className="flex items-center justify-end gap-2">
