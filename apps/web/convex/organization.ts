@@ -89,14 +89,20 @@ export const checkSlug = query({
     }
 });
 
-// get an org for a signed in user
-export const getUserOrgBySlug = query({
+// get an org for a signed in user by slug
+export const getBySlug = query({
     args: {
         slug: v.string()
     },
     handler: async (ctx, { slug }) => {
         const user = await ctx.auth.getUserIdentity();
-        if (!user) return;
-        //
+        if (!user) return null;
+
+        const { auth, headers } = await authComponent.getAuth(createAuth, ctx);
+        if (!auth) return null;
+
+        const orgs = await auth.api.listOrganizations({ headers });
+        const org = orgs.find((o: { slug: string }) => o.slug === slug);
+        return org ?? null;
     }
 });

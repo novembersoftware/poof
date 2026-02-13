@@ -19,7 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "poof.sh",
+    title: {
+        default: "poof.sh",
+        template: "%s | poof.sh"
+    },
     description:
         "Easy open source environment variable management for teams and individuals. Open source and self-hostable.",
     openGraph: {
