@@ -96,10 +96,10 @@ export const getBySlug = query({
     },
     handler: async (ctx, { slug }) => {
         const user = await ctx.auth.getUserIdentity();
-        if (!user) return null;
+        if (!user) return;
 
         const { auth, headers } = await authComponent.getAuth(createAuth, ctx);
-        if (!auth) return null;
+        if (!auth) return;
 
         const orgs = await auth.api.listOrganizations({ headers });
         const org = orgs.find((o: { slug: string }) => o.slug === slug);

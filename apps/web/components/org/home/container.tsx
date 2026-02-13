@@ -3,18 +3,9 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export function OrgHomeContainer({ slug }: { slug: string }) {
-    const router = useRouter();
     const org = useQuery(api.organization.getBySlug, { slug });
-
-    useEffect(() => {
-        if (org === null) {
-            router.replace("/auth/loading");
-        }
-    }, [org, router]);
 
     if (org === undefined) {
         return (
