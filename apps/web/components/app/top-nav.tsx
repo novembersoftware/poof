@@ -24,15 +24,16 @@ export function AppTopNav({ links }: { links: AppTopNavLink[] }) {
 
     return (
         <header className="sticky top-0 z-20 backdrop-blur-sm">
-            <div className="flex h-14 w-full items-center justify-between px-4 sm:px-8 md:px-12">
+            <div className="grid h-14 w-full grid-cols-3 items-center px-4 sm:px-8 md:px-12">
                 <div className="flex min-w-0 items-center gap-6">
                     <Link href={`/${currentOrg?.slug}`} className="shrink-0">
                         <AsteriskIcon className="inline-block size-5" />
                     </Link>
                     <OrgDropdown currentSlug={currentOrg?.slug ?? ""} />
+                </div>
 
-                    <nav className="flex items-center gap-1">
-                        {links.map((item) => {
+                <nav className="flex items-center justify-center gap-1">
+                    {links.map((item) => {
                             const isActive =
                                 pathname === item.href ||
                                 (item.href !== "/" && pathname.startsWith(`${item.href}/`));
@@ -48,10 +49,9 @@ export function AppTopNav({ links }: { links: AppTopNavLink[] }) {
                                 </Button>
                             );
                         })}
-                    </nav>
-                </div>
+                </nav>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-end gap-2">
                     <UserDropdown />
                 </div>
             </div>
