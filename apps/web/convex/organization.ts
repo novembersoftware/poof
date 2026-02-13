@@ -41,7 +41,8 @@ export const create = mutation({
                 metadata: {
                     isTeam: args.isTeam
                 },
-                keepCurrentActiveOrganization: true // users can be in multiple orgs
+                keepCurrentActiveOrganization: false // switch active state to the new org
+                // switching active state is just for the session management, the user can be in multiple orgs
             }
         });
     }
