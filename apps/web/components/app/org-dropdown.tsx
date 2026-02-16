@@ -69,7 +69,7 @@ export function OrgDropdown({ currentSlug }: { currentSlug: string }) {
 function OrgBadge({ isTeam }: { isTeam: boolean }) {
     return (
         <Badge
-            className={`ml-1 border text-xs tracking-widest ${isTeam ? "border-green-500/20 bg-green-500/20 text-green-500" : "bg-muted/50 text-muted-foreground border-muted"} `}
+            className={`ml-1 border text-xs ${isTeam ? "border-green-500/20 bg-green-500/20 text-green-500" : "bg-muted/50 text-muted-foreground border-muted"} `}
         >
             {isTeam ? "Team" : "Hobby"}
         </Badge>
