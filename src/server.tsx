@@ -1,8 +1,8 @@
-import { createStartHandler, defaultStreamHandler } from "@tanstack/react-start/server";
+import { createStartHandler, defaultRenderHandler } from "@tanstack/react-start/server";
 import type { Register } from "@tanstack/react-router";
 import type { RequestHandler } from "@tanstack/react-start/server";
 
-export const fetch = createStartHandler(defaultStreamHandler);
+export const fetch = createStartHandler(defaultRenderHandler);
 
 type ServerEntry = { fetch: RequestHandler<Register> };
 
