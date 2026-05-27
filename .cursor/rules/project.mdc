@@ -4,28 +4,23 @@ alwaysApply: true
 
 ## Project Overview
 
-poof.sh is a simple service that allows you to create short-lived text "files" that can be shared to anyone but can only be viewed once. A disposable text file that can be used to share one-time information with someone. When a user creates an entry, they are given a short URL that can be shared with anyone, but once that entry is viewed, it is deleted from the system.
+poof.sh is an environment variable storage website similar to platforms like Infisical, Dotenv Valut, Phase, and others.
 
-This service is 100% free and open-source. The goal for this is to be easily self-hosted (ideally one command to get it running).
+### Features
 
-## Project Structure
+- Client side encryption
+- Per-project encryption system
+- User's can organize variables by projects - projects by org, etc.
+- User's can invite teammates to orgs/projects
 
-The project is organized into the following directories:
+### Project Structure
 
-- `apps/api/`: The API application
-- `apps/web/`: The web application
+poof has 2 components as of now.
 
-## Tech Stack
+- `apps/web` NextJS based web app using Convex and Better-Auth. This is where the user will configure and control most things
+- `apps/cli` Go based CLI tool for easy loading and unloading of env variables, all data operations (CRUD) use the Convex api routes exposed in the web app
 
-### API
+### Tech Stack
 
-- Go (1.25.4)
-- Go Fiber
-- Redis
-- Zerolog
-
-### Web
-
-- Next.js
-- Tailwind CSS
-- Shadcn UI
+- Web: NextJS, Shadcn/ui, Tailwind, Convex, Better-Auth
+- CLI: Go, Gin
