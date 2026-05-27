@@ -5,7 +5,7 @@ import { useForm } from "@tanstack/react-form";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
-import { toast } from "sonner";
+import { sileo } from "sileo";
 import z from "zod";
 import { Button } from "./ui/button";
 import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
@@ -31,7 +31,10 @@ export function AuthButtons({ callbackURL }: { callbackURL: string }) {
             }
         } catch (error: unknown) {
             console.error(error);
-            toast.error(error instanceof Error ? error.message : "Sign in failed");
+            sileo.error({
+                title: "Sign in failed",
+                description: error instanceof Error ? error.message : "Unknown error"
+            });
         }
     };
 
@@ -93,7 +96,8 @@ function MagicLinkForm({ onBack }: { onBack: () => void }) {
             onSubmit: magicLinkSchema
         },
         onSubmit: async ({ value }) => {
-            toast.error("Not implemented yet", {
+            sileo.error({
+                title: "Not implemented yet",
                 description: "Use GitHub to sign in for now."
             });
         }

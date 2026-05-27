@@ -1,4 +1,5 @@
 import { AppPageHeader } from "@/components/app/page-header";
+import { NewProjectButton, ProjectGrid } from "@/components/app/project-grid";
 import { AppTopNav } from "@/components/app/top-nav";
 import { api } from "@/convex/_generated/api";
 import { fetchAuthQuery } from "@/lib/auth-server";
@@ -27,8 +28,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 ]}
             />
             <main className="flex-1">
-                <section className="mx-auto w-full max-w-4xl px-8 pt-10 pb-16">
-                    <AppPageHeader title="Projects" />
+                <section className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-8 pt-10 pb-16">
+                    <div className="flex flex-row items-center justify-between">
+                        <AppPageHeader title="Projects" />
+                        <NewProjectButton />
+                    </div>
+                    <ProjectGrid />
                 </section>
             </main>
         </div>

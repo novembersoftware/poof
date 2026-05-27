@@ -2,10 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
+import { authClient } from "@/lib/auth-client";
 import { useQuery } from "convex/react";
 import { AsteriskIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { OrgDropdown } from "./org-dropdown";
 import { UserDropdown } from "./user-dropdown";
 
@@ -18,9 +20,20 @@ export function AppTopNav({ links }: { links: AppTopNavLink[] }) {
     const pathname = usePathname();
     const data = useQuery(api.auth.getCurrentUserAndOrgs);
     const segments = pathname.split("/").filter(Boolean);
+    const { data: activeOrg } = authClient.useActiveOrganization();
 
     const orgSlug = segments[0];
     const currentOrg = data?.orgs?.find((org) => org.slug === orgSlug);
+
+    useEffect(() => {
+        if (!currentOrg || !orgSlug) return;
+        if (activeOrg?.slug !== orgSlug) {
+            authClient.organization.setActive({
+                organizationId: currentOrg.id,
+                organizationSlug: currentOrg.slug
+            });
+        }
+    }, [orgSlug, currentOrg, activeOrg?.slug]);
 
     return (
         <header className="sticky top-0 z-20 backdrop-blur-sm">

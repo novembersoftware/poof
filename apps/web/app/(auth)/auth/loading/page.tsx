@@ -1,21 +1,21 @@
 "use client";
 
 import { Spinner } from "@/components/ui/spinner";
-import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Page() {
     const router = useRouter();
-    const data = useQuery(api.auth.getCurrentUserAndOrgs);
+    const { data: organizations } = authClient.useListOrganizations();
+    const { data: activeOrg } = authClient.useActiveOrganization();
 
     useEffect(() => {
-        if (data?.orgs && data.orgs.length > 0) {
-            router.push(`/${data.orgs[0].slug}`);
-            // TODO: store last org id in local storage and use it here
+        if (organizations && organizations.length > 0) {
+            const targetOrg = activeOrg ?? organizations[0];
+            router.push(`/${targetOrg.slug}`);
         }
-    }, [data, router]);
+    }, [organizations, activeOrg, router]);
 
     return (
         <div className="flex h-screen w-full items-center justify-center">

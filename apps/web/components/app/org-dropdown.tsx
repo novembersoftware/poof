@@ -38,7 +38,13 @@ export function OrgDropdown({ currentSlug }: { currentSlug: string }) {
                             {organizations?.map((org) => (
                                 <DropdownMenuItem
                                     key={org.id}
-                                    onClick={() => router.push(`/${org.slug}`)}
+                                    onClick={async () => {
+                                        router.push(`/${org.slug}`);
+                                        await authClient.organization.setActive({
+                                            organizationId: org.id,
+                                            organizationSlug: org.slug
+                                        });
+                                    }}
                                     className="w-full cursor-pointer justify-between"
                                 >
                                     <div className="flex flex-row items-start gap-2">
