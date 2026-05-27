@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && tsc --noEmit",
-        "start": "node .output/server/index.mjs",
+        "start": "HOST=0.0.0.0 node .output/server/index.mjs",
         "lint": "eslint .",
         "test": "vitest run --config vitest.config.ts"
     },
