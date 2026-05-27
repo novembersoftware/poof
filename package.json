@@ -36,7 +36,7 @@
         "@types/react-dom": "^19",
         "@vitejs/plugin-react": "^6",
         "eslint": "^9",
-        "nitro": "^3",
+        "nitro": "npm:nitro-nightly@latest",
         "prettier-plugin-organize-imports": "^4.3.0",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4",
